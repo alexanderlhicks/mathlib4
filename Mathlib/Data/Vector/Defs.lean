@@ -43,6 +43,10 @@ def cons : α → Vector α n → Vector α (Nat.succ n)
 def length (_ : Vector α n) : ℕ :=
   n
 
+/-- A vectors' weight is its number of non-zero elements with respect to a boolean predicate. -/
+def weight (p : α → Bool) (v : Vector α n) : ℕ :=
+  (v.1.filter p).length
+
 open Nat
 
 /-- The first element of a vector with length at least `1`. -/
